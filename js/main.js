@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $('.container').load('/home.html');
+    $('.container').load('./html/home.html');
 
     // Función que cargará páginas dinamicamente en el div container en vez de redireccionar
     $("#menu a").click(function(e){
