@@ -49,6 +49,10 @@ $(document).ready(function(){
             return false;
         }
 
+        alert("Datos modificados correctamente");
+
+        $(location).prop('href', '../main.html');
+
     });
 
     function calcular_anios(fecha_nac){
