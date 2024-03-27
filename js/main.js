@@ -3,17 +3,18 @@ $(document).ready(function(){
     $('.container').load('./html/home.html');
 
     // Función que cargará páginas dinamicamente en el div container en vez de redireccionar
-    $("#menu a").click(function(e){
+    $("#menu a, #menu .logo").click(function(e){
         e.preventDefault();
-        var href_seleccionado = e.target.href
-
         if (this.className.includes("dropdown")) {
             return false;
         }
+        
+        var href_seleccionado = e.target.href
 
         // Si la URL contiene main.html, hacemos un redirect a main.html
-        if (href_seleccionado.includes("main.html") || href_seleccionado.includes("#")){
+        if (isImgLogoClicked($(this)) || href_seleccionado.includes("main.html") || href_seleccionado.includes("#")){
             $(location).attr("href", "./main.html") // REDIRECT a la página main.html
+            return false;
         } else {
             // Aquí cargamos dinamicamente el valor del atributo href del link
             $('div.container').load(href_seleccionado);
@@ -39,5 +40,10 @@ $(document).ready(function(){
         var element = $(this).parent().siblings().children('.show');
         $(element).removeClass("show");
     });
+
+
+    function isImgLogoClicked(e){
+        return $(e)[0].tagName == 'IMG' && $(e).attr('src').includes('logo.png');
+    }
 
 });
