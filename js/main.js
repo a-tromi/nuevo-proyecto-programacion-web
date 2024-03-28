@@ -15,6 +15,9 @@ $(document).ready(function(){
         if (isImgLogoClicked($(this)) || href_seleccionado.includes("main.html") || href_seleccionado.includes("#")){
             $(location).attr("href", "./main.html") // REDIRECT a la página main.html
             return false;
+        } else if (href_seleccionado.includes("login.html")) {
+            $(location).attr("href", "./login.html") // REDIRECT a la página login.html
+            return false;
         } else {
             // Aquí cargamos dinamicamente el valor del atributo href del link
             $('div.container').load(href_seleccionado);
